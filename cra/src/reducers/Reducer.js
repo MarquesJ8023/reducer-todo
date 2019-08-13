@@ -25,11 +25,12 @@ export function Reducer(state, action) {
           todo.id === action.payload ? {...todo, completed: !todo.completed} : todo
         ))
       };
-      case 'ADD_TODO':
-        return {
-          ...state,
-          todos: state.todos({item: action.payload, completed: false, id: Date.now()})
-        };
+      case "ADD_TODO":
+ return {
+   ...state,
+   todos: state.todos.concat({ item: action.payload, completed: false, id: Date.now() }),
+   item: ""
+ };
       case "CLEAR_COMPLETED":
       return {
         ...state,
